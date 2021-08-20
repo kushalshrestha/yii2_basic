@@ -37,7 +37,7 @@ class CronTestController extends Controller
             $dir = __DIR__."/../cron_log";
             // die($dir);
             $job1->setCommand("php -r 'echo \"{$time}\";' >> {$dir}/log.txt");
-            $job1->setSchedule(new \Cron\Schedule\CrontabSchedule('* * * * *'));
+            $job1->setSchedule(new \Cron\Schedule\CrontabSchedule('*/5 * * * *'));
 
             $resolver = new \Cron\Resolver\ArrayResolver();
             $resolver->addJob($job1);
